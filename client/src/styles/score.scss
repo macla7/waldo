@@ -1,0 +1,18 @@
+.scoreCont {
+  top: 0;
+  left: 0;
+  position: absolute;
+  border: 2px solid greenyellow;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  padding: 3rem;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+.scoreCard {
+  background-color: rgb(255, 105, 180);
+  height: 100%;
+  border-radius: 10px;
+}

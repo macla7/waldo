@@ -1,18 +1,23 @@
-import React from "react";
-import { useEffect } from "react";
+import React, { useState } from "react";
+import Game from "./Game";
+import Menu from "./Menu";
 
 function Display(props) {
-  useEffect(() => {
-    window
-      .fetch("/api/v1/images/1")
-      .then((response) => response.json())
-      .then((json) => console.log(json))
-      .catch((error) => console.log(error));
-  }, []);
+  const [inGame, setInGame] = useState(false);
+  const [drawing, setDrawing] = useState("");
+
+  function toggleGame(game) {
+    setInGame((prev) => !prev);
+    setDrawing((prev) => (prev === "" ? game : ""));
+  }
+
   return (
     <div className="display">
-      <h2>This is the display</h2>
-      {props.children}
+      {inGame ? (
+        <Game drawing={drawing} toggleGame={toggleGame} />
+      ) : (
+        <Menu toggleGame={toggleGame} />
+      )}
     </div>
   );
 }

@@ -1,0 +1,15 @@
+.drawingList {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+
+  img {
+    height: 100%;
+  }
+
+  li {
+    margin: 1vh;
+    max-height: 300px;
+    aspect-ratio: 3 / 2;
+  }
+}

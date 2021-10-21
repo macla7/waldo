@@ -1,0 +1,14 @@
+.character {
+  border-radius: 5px;
+  border: 2px solid white;
+  filter: grayscale(25%);
+}
+
+.charactersCont {
+  padding: 0.5rem;
+}
+
+.found {
+  filter: none;
+  border: 4px solid greenyellow;
+}
