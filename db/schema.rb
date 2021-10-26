@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_21_005858) do
+ActiveRecord::Schema.define(version: 2021_10_21_064106) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,5 +32,15 @@ ActiveRecord::Schema.define(version: 2021_10_21_005858) do
     t.string "url"
   end
 
+  create_table "scores", force: :cascade do |t|
+    t.string "name"
+    t.integer "seconds"
+    t.bigint "image_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["image_id"], name: "index_scores_on_image_id"
+  end
+
   add_foreign_key "characters", "images"
+  add_foreign_key "scores", "images"
 end

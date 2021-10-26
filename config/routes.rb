@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :images
+      resources :images do 
+        resources :scores
+      end
     end
   end
 end

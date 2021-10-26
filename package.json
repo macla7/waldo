@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "hh-mm-ss": "^1.2.0"
+    "hh-mm-ss": "^1.2.0",
+    "uniqid": "^5.4.0"
   }
 }

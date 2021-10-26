@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import TimeFormat from "hh-mm-ss";
+import Score from "./Score";
 
 function Clock(props) {
   const [time, setTime] = useState(0);
@@ -15,6 +16,15 @@ function Clock(props) {
 
   return (
     <div>
+      {props.gameOver ? (
+        <Score
+          time={time}
+          drawingId={props.drawingId}
+          toggleGame={props.toggleGame}
+        />
+      ) : (
+        ""
+      )}
       <h4>{TimeFormat.fromS(time)}</h4>
     </div>
   );

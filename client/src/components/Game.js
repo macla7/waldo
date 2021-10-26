@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState, useRef } from "react";
-import Score from "./Score";
+
 import Characters from "./Characters";
 import Drawing from "./Drawing";
 import Clock from "./Clock";
@@ -19,7 +19,7 @@ function Game(props) {
         charactersArr.current = json.characters;
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [props.drawing.id]);
 
   function checkCharacter({ imgX, imgY }) {
     let characterFound = false;
@@ -66,10 +66,13 @@ function Game(props) {
   return (
     <div className="gameCont">
       <button onClick={handleClick}>Home</button>
-      {gameOver ? <Score /> : ""}
       <div className="game">
         <div className="sidePanel">
-          <Clock gameOver={gameOver} />
+          <Clock
+            gameOver={gameOver}
+            drawingId={props.drawing.id}
+            toggleGame={props.toggleGame}
+          />
           <Characters found={found} />
         </div>
         <Drawing
