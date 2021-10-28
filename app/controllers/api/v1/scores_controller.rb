@@ -6,9 +6,10 @@ module Api::V1
     end
 
     def create
-      puts 'HELLLLLLLO 3'
+      puts 'HELLLLLLLO 5'
+      puts params
       @image = Image.find(params[:image_id])
-      @score = @image.scores.build({name: params[:name], seconds: params[:time], image_id: params[:image_id]})
+      @score = @image.scores.build(params.require(:score).permit(:name, :seconds, :image_id))
       
       if @score.save
         render json: @image.scores

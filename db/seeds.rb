@@ -6,6 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+skiSlopes = Image.create(
+  title: 'Ski Slopes',
+  url: 'skiSlopes'
+)
+
+skiSlopes.characters.create(name: 'waldo', x_location: 2569, y_location: 1379)
+skiSlopes.characters.create(name: 'wenda', x_location: 1472, y_location: 792)
+skiSlopes.characters.create(name: 'wizard', x_location: 211, y_location: 1441)
+skiSlopes.characters.create(name: 'odlaw', x_location: 955, y_location: 1211)
+
 spaceStation = Image.create(
   title: "Space Station",
   url: 'spaceStation'
@@ -26,15 +36,7 @@ fruitLand.characters.create(name: 'wenda', x_location: 400, y_location: 1645)
 fruitLand.characters.create(name: 'wizard', x_location: 755, y_location: 952)
 fruitLand.characters.create(name: 'odlaw', x_location: 1984, y_location: 1087)
 
-skiSlopes = Image.create(
-  title: 'Ski Slopes',
-  url: 'skiSlopes'
-)
 
-skiSlopes.characters.create(name: 'waldo', x_location: 2569, y_location: 1379)
-skiSlopes.characters.create(name: 'wenda', x_location: 1472, y_location: 792)
-skiSlopes.characters.create(name: 'wizard', x_location: 211, y_location: 1441)
-skiSlopes.characters.create(name: 'odlaw', x_location: 955, y_location: 1211)
 
 
 

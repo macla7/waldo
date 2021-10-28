@@ -1,15 +1,11 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: "Balsamiq";
+  src: url("../fonts/Balsamiq_Sans/BalsamiqSans-Regular.ttf");
+  // src: url('../src/Open_Sans/OpenSans-Light.ttf')
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+body {
+  font-family: "Balsamiq";
 }
 
 * {
@@ -22,15 +18,21 @@ code {
   color: white;
   min-height: 100vh;
   margin: 0;
-  padding: 0;
+  padding: 0.5rem;
 }
 
 .App-header {
-  background-color: #282c34;
+  padding: 0.5rem;
+  border-radius: 25px;
+  background-color: #720000;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(20px);
   color: white;
+
+  h1 {
+    font-size: 3rem;
+  }
 }

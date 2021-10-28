@@ -25,7 +25,9 @@ function Clock(props) {
       ) : (
         ""
       )}
-      <h4>{TimeFormat.fromS(time)}</h4>
+      <div className="clock">
+        <h4>{TimeFormat.fromS(time)}</h4>
+      </div>
     </div>
   );
 }

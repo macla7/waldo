@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 function Menu(props) {
   const [drawingsArr, setDrawingsArr] = useState([]);
+  const difficulties = ["Easy", "Medium", "Hard"];
 
   useEffect(() => {
     window
@@ -17,9 +18,10 @@ function Menu(props) {
   }, []);
 
   function createList(arr) {
-    return arr.map((drawing) => {
+    return arr.map((drawing, i) => {
       return (
         <li className="drawingLi" key={drawing.title}>
+          <p>{difficulties[i]}</p>
           <img
             src={`/images/${drawing.url}.jpeg`}
             alt={`${drawing.title} tile`}
@@ -38,8 +40,6 @@ function Menu(props) {
 
   return (
     <div>
-      <h4>Menu</h4>
-      {console.log(drawingsArr)}
       <ul className="drawingList">{drawingsArr}</ul>
     </div>
   );

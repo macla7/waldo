@@ -5,6 +5,9 @@ import Characters from "./Characters";
 import Drawing from "./Drawing";
 import Clock from "./Clock";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
+
 function Game(props) {
   const charactersArr = useRef([]);
   const [found, setFound] = useState({});
@@ -65,7 +68,9 @@ function Game(props) {
 
   return (
     <div className="gameCont">
-      <button onClick={handleClick}>Home</button>
+      <button onClick={handleClick} className="home">
+        <FontAwesomeIcon icon={faHome} />
+      </button>
       <div className="game">
         <div className="sidePanel">
           <Clock

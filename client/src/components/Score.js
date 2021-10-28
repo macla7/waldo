@@ -5,6 +5,7 @@ import TimeFormat from "hh-mm-ss";
 function Score(props) {
   const [name, setName] = useState("");
   const [scores, setScores] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
   function handleChange(e) {
     setName(e.target.value);
@@ -20,6 +21,7 @@ function Score(props) {
       [e.target.elements[2].name]: e.target.elements[2].value,
     };
 
+    console.log(formData);
     console.log(JSON.stringify(formData));
     fetch(`api/v1/images/${e.target.elements[2].value}/scores`, {
       method: "post",
@@ -31,6 +33,7 @@ function Score(props) {
       .then((data) => data.json())
       .then((json) => {
         setScores(makeTable(json));
+        setSubmitted(true);
       })
       .catch((err) => console.log("Error boi is: ", err));
 
@@ -69,22 +72,25 @@ function Score(props) {
       <div className="scoreCard">
         <h2>You did it!</h2>
 
-        <ul>{scores}</ul>
-        <p>Please enter your Name</p>
-        <form onSubmit={onSubmit}>
-          <label>
-            Name:
-            <input
-              type="text"
-              value={name}
-              onChange={handleChange}
-              name="name"
-            />
-          </label>
-          <input value={props.time} type="hidden" name="time" />
-          <input value={props.drawingId} type="hidden" name="image_id" />
-          <input type="submit" value="Submit" />
-        </form>
+        <div className="tableCont">{scores}</div>
+
+        {submitted ? null : (
+          <form onSubmit={onSubmit}>
+            <p>Please enter your Name</p>
+            <label>
+              Name:
+              <input
+                type="text"
+                value={name}
+                onChange={handleChange}
+                name="name"
+              />
+            </label>
+            <input value={parseInt(props.time)} type="hidden" name="seconds" />
+            <input value={props.drawingId} type="hidden" name="image_id" />
+            <input type="submit" value="Submit" />
+          </form>
+        )}
         <button onClick={handleClick}>Home</button>
       </div>
     </div>
